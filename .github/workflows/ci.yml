@@ -1,0 +1,40 @@
+# Lab 2 · Integración continua: en cada push o pull request se generan los datos,
+# se pasan los tests de datos y de modelo y, si todo va bien, se entrena el modelo.
+name: ci-modelo-churn
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  test-y-entrenamiento:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+
+      - name: Instalar dependencias
+        run: pip install -r requirements.txt
+
+      - name: Generar datos
+        run: python data/generate_data.py
+
+      - name: Tests de datos y de modelo
+        run: pytest -v
+
+      - name: Entrenar modelo candidato
+        run: python lab1/train.py --class-weight balanced
+
+      - name: Guardar el registro de MLflow como artefacto
+        uses: actions/upload-artifact@v4
+        with:
+          name: mlflow-run
+          path: |
+            mlflow.db
+            mlruns/

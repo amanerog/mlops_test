@@ -1,0 +1,9 @@
+lab3/indice.npz
+mlflow.db
+mlruns/
+mlartifacts/
+__pycache__/
+.venv/
+.pytest_cache/
+data/*.csv
+.DS_Store

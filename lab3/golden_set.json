@@ -1,0 +1,18 @@
+[
+  {"pregunta": "¿Cuánto cuesta el plan Premium?", "debe_contener": [["19,99", "19.99"]], "fuente": "planes_y_precios.md"},
+  {"pregunta": "¿Cuántas pantallas puedo usar a la vez con el plan Estándar?", "debe_contener": [["dos", "2"]], "fuente": "dispositivos.md"},
+  {"pregunta": "¿Cuántos títulos puedo descargar con el plan Premium?", "debe_contener": [["100"]], "fuente": "descargas.md"},
+  {"pregunta": "Si cancelo la suscripción, ¿hasta cuándo puedo seguir viendo series?", "debe_contener": [["final del periodo", "fin del periodo", "final del período"]], "fuente": "cancelacion.md"},
+  {"pregunta": "Me habéis cobrado dos veces este mes, ¿qué puedo hacer?", "debe_contener": [["reembols"], ["30 días"]], "fuente": "reembolsos.md"},
+  {"pregunta": "¿Cuánto tarda en llegar un reembolso?", "debe_contener": [["5"], ["10"]], "fuente": "reembolsos.md"},
+  {"pregunta": "¿Cuántos perfiles puedo crear en mi cuenta?", "debe_contener": [["5", "cinco"]], "fuente": "perfiles.md"},
+  {"pregunta": "¿Cómo evito que mis hijos entren en mi perfil?", "debe_contener": [["PIN"]], "fuente": "perfiles.md"},
+  {"pregunta": "¿Qué velocidad de internet necesito para ver en 4K?", "debe_contener": [["15 Mbps", "15Mbps"]], "fuente": "soporte.md"},
+  {"pregunta": "¿Qué métodos de pago aceptáis?", "debe_contener": [["tarjeta"], ["PayPal"]], "fuente": "pagos.md"},
+  {"pregunta": "¿Qué pasa si falla el cobro de mi suscripción?", "debe_contener": [["3", "tres"], ["suspend"]], "fuente": "pagos.md"},
+  {"pregunta": "¿Tenéis algún descuento para estudiantes?", "debe_contener": [["20"]], "fuente": "promociones.md"},
+  {"pregunta": "¿Cuál es el teléfono de atención al cliente?", "debe_contener": [["900 123 456", "900123456"]], "fuente": "soporte.md"},
+  {"pregunta": "¿Cuándo caducan las películas que descargo?", "debe_contener": [["30 días"], ["48"]], "fuente": "descargas.md"},
+  {"pregunta": "¿El plan Básico tiene modalidad anual?", "debe_contener": [["no"]], "fuente": "promociones.md"},
+  {"pregunta": "¿Quién ganó el Mundial de fútbol de 2010?", "debe_contener": [["no tengo esa información", "no tengo información", "no dispongo"]], "fuente": null}
+]
