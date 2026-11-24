@@ -54,6 +54,14 @@ Si los tres pasos funcionan, estás listo.
 - El código está en una carpeta compartida: edita los ficheros con tu editor habitual y ejecútalos en el contenedor.
 - Los enlaces que imprime MLflow (`http://mlflow:5000/...`) son internos del contenedor: desde tu navegador usa **http://localhost:5050**.
 
+## Si usas Windows
+Dentro del contenedor todo es igual que en Mac o Linux. Las diferencias están solo en la terminal de tu máquina:
+- **Usa Git Bash** (se instala con Git) para los comandos fuera del contenedor (`git`, `docker compose`, `curl`). Así funcionan tal cual están en los README.
+- Si prefieres **PowerShell**:
+  - Windows PowerShell 5.1 no admite `&&`: ejecuta los comandos por separado (o usa PowerShell 7).
+  - Usa `curl.exe` en lugar de `curl` (en PowerShell, `curl` es otro comando).
+- Docker Desktop debe usar **WSL 2** (opción por defecto al instalarlo).
+
 ## Arquitectura del entorno
 | Servicio | Qué es | Puerto |
 |---|---|---|
@@ -70,10 +78,12 @@ Si los tres pasos funcionan, estás listo.
 ## Sin Docker (alternativa)
 Con Python 3.11 y [Ollama](https://ollama.com) instalados en tu máquina:
 ```bash
-python -m venv .venv && source .venv/bin/activate   # en Windows: .venv\Scripts\activate
+python -m venv .venv && source .venv/bin/activate   # en Windows (PowerShell): .venv\Scripts\Activate.ps1
 pip install -r requirements.txt
 ollama pull qwen2.5:1.5b && ollama pull qwen2.5:0.5b && ollama pull embeddinggemma
 mlflow ui --backend-store-uri sqlite:///mlflow.db --port 5050   # en otra terminal
-export MLFLOW_TRACKING_URI=sqlite:///mlflow.db                   # en Windows: set MLFLOW_TRACKING_URI=...
+export MLFLOW_TRACKING_URI=sqlite:///mlflow.db                   # en PowerShell: $env:MLFLOW_TRACKING_URI="sqlite:///mlflow.db"
 ```
+En Windows, si PowerShell no deja activar el entorno, ejecuta una vez `Set-ExecutionPolicy -Scope CurrentUser RemoteSigned`.
+
 Sin la variable `MLFLOW_TRACKING_URI`, los scripts usan igualmente `mlflow.db` en la raíz del repositorio.
